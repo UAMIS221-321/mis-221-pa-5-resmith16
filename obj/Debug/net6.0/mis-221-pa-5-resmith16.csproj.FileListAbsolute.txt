@@ -1,0 +1,15 @@
+C:\Users\resmi\OneDrive\Desktop\repos\MIS221\PA5\mis-221-pa-5-resmith16\bin\Debug\net6.0\mis-221-pa-5-resmith16.exe
+C:\Users\resmi\OneDrive\Desktop\repos\MIS221\PA5\mis-221-pa-5-resmith16\bin\Debug\net6.0\mis-221-pa-5-resmith16.deps.json
+C:\Users\resmi\OneDrive\Desktop\repos\MIS221\PA5\mis-221-pa-5-resmith16\bin\Debug\net6.0\mis-221-pa-5-resmith16.runtimeconfig.json
+C:\Users\resmi\OneDrive\Desktop\repos\MIS221\PA5\mis-221-pa-5-resmith16\bin\Debug\net6.0\mis-221-pa-5-resmith16.dll
+C:\Users\resmi\OneDrive\Desktop\repos\MIS221\PA5\mis-221-pa-5-resmith16\bin\Debug\net6.0\mis-221-pa-5-resmith16.pdb
+C:\Users\resmi\OneDrive\Desktop\repos\MIS221\PA5\mis-221-pa-5-resmith16\obj\Debug\net6.0\mis-221-pa-5-resmith16.csproj.AssemblyReference.cache
+C:\Users\resmi\OneDrive\Desktop\repos\MIS221\PA5\mis-221-pa-5-resmith16\obj\Debug\net6.0\mis-221-pa-5-resmith16.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\resmi\OneDrive\Desktop\repos\MIS221\PA5\mis-221-pa-5-resmith16\obj\Debug\net6.0\mis-221-pa-5-resmith16.AssemblyInfoInputs.cache
+C:\Users\resmi\OneDrive\Desktop\repos\MIS221\PA5\mis-221-pa-5-resmith16\obj\Debug\net6.0\mis-221-pa-5-resmith16.AssemblyInfo.cs
+C:\Users\resmi\OneDrive\Desktop\repos\MIS221\PA5\mis-221-pa-5-resmith16\obj\Debug\net6.0\mis-221-pa-5-resmith16.csproj.CoreCompileInputs.cache
+C:\Users\resmi\OneDrive\Desktop\repos\MIS221\PA5\mis-221-pa-5-resmith16\obj\Debug\net6.0\mis-221-pa-5-resmith16.dll
+C:\Users\resmi\OneDrive\Desktop\repos\MIS221\PA5\mis-221-pa-5-resmith16\obj\Debug\net6.0\refint\mis-221-pa-5-resmith16.dll
+C:\Users\resmi\OneDrive\Desktop\repos\MIS221\PA5\mis-221-pa-5-resmith16\obj\Debug\net6.0\mis-221-pa-5-resmith16.pdb
+C:\Users\resmi\OneDrive\Desktop\repos\MIS221\PA5\mis-221-pa-5-resmith16\obj\Debug\net6.0\mis-221-pa-5-resmith16.genruntimeconfig.cache
+C:\Users\resmi\OneDrive\Desktop\repos\MIS221\PA5\mis-221-pa-5-resmith16\obj\Debug\net6.0\ref\mis-221-pa-5-resmith16.dll
