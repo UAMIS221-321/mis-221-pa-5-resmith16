@@ -6,8 +6,9 @@ namespace mis_221_pa_5_resmith16
         private Trainer[] trainers;
         string userInput = ""; 
 
-        public ListingUtility(Listing[] listings){
+        public ListingUtility(Listing[] listings, Trainer[] trainers){
             this.listings = listings;
+            this.trainers = trainers;
         }
 
         public void ReadAllListings(){
@@ -42,60 +43,113 @@ namespace mis_221_pa_5_resmith16
             inFile.Close();
         }
 
-        public void PrintAllListings(){
+        public void PrintCurrentListings(){
+            int j = 1;
+
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Green;
+
+            CategoryHeader();
+
             for(int i = 0; i < Listing.GetCount(); i++){
-                Console.SetCursorPosition(0, i);
-                System.Console.WriteLine(listings[i].GetID());
+                if(listings[i].GetStatus() != "Deleted"){
+                    Console.SetCursorPosition(0, j);
+                    System.Console.WriteLine(listings[i].GetID());
 
-                Console.SetCursorPosition(5, i);
-                System.Console.WriteLine(listings[i].GetName());
+                    Console.SetCursorPosition(5, j);
+                    System.Console.WriteLine(listings[i].GetName());
 
-                Console.SetCursorPosition(27, i);
-                System.Console.WriteLine(listings[i].GetDate());
+                    Console.SetCursorPosition(27, j);
+                    System.Console.WriteLine(listings[i].GetDate());
 
-                Console.SetCursorPosition(45, i);
-                System.Console.WriteLine(listings[i].GetTime());
+                    Console.SetCursorPosition(45, j);
+                    System.Console.WriteLine(listings[i].GetTime());
 
-                Console.SetCursorPosition(65, i);
-                System.Console.WriteLine(listings[i].GetCost());
+                    Console.SetCursorPosition(65, j);
+                    System.Console.WriteLine(listings[i].GetCost());
 
-                Console.SetCursorPosition(75, i);
-                System.Console.WriteLine(listings[i].GetAvailability());
+                    Console.SetCursorPosition(75, j);
+                    System.Console.WriteLine(listings[i].GetStatus());
 
-                Console.SetCursorPosition(85, i);
-                System.Console.WriteLine(listings[i].GetStatus());
+                    j++;
+                }
+                else{
+                    //Skip
+                }
             }
             Console.ResetColor();
 
             System.Console.WriteLine(); //Just for space between the menu
         }
 
+        public void PrintAllListings(){
+            int j = 1;
 
-        //Now build your add, edit, and delete methods
-        //Need to build a method for developing your trainer IDs - worry about it later
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Green;
 
+            CategoryHeader();
+
+            for(int i = 0; i < Listing.GetCount(); i++){
+                Console.SetCursorPosition(0, j);
+                System.Console.WriteLine(listings[i].GetID());
+
+                Console.SetCursorPosition(5, j);
+                System.Console.WriteLine(listings[i].GetName());
+
+                Console.SetCursorPosition(27, j);
+                System.Console.WriteLine(listings[i].GetDate());
+
+                Console.SetCursorPosition(45, j);
+                System.Console.WriteLine(listings[i].GetTime());
+
+                Console.SetCursorPosition(65, j);
+                System.Console.WriteLine(listings[i].GetCost());
+
+                Console.SetCursorPosition(75, j);
+                System.Console.WriteLine(listings[i].GetStatus());
+
+                j++;
+            }
+            Console.ResetColor();
+
+            System.Console.WriteLine(); //Just for space between the menu
+        }
 
         public void AddListing(){
             Console.Clear();
 
             Listing myListing = new Listing();
 
+            myListing.SetID(Listing.GetCount() + 1);
+
             //Entering info (ID and Status are automatically set)
             System.Console.WriteLine("Please Enter Trainer Name:");
-            myListing.SetName(Console.ReadLine());
+            string selectedTrainer = Console.ReadLine();
 
-            myListing.SetTrainerID(trainers[0].GetID());
+            Console.Clear();
+            
+            myListing.SetName(selectedTrainer);
+
+            int foundTrainerID = FindTrainerID(selectedTrainer);
+            myListing.SetTrainerID(foundTrainerID);
+
+            Console.Clear();
 
             System.Console.WriteLine("Please Enter Listing Date:");
             myListing.SetDate(Console.ReadLine());
 
+            Console.Clear();
+
             System.Console.WriteLine("Please Enter Listing Time:");
             myListing.SetTime(Console.ReadLine());
 
+            Console.Clear();
+
             System.Console.WriteLine("Please Enter Listing Cost:");
-            myListing.SetCost(double.Parse(Console.ReadLine()));
+            myListing.SetCost(int.Parse(Console.ReadLine()));
+
+            myListing.SetStatus("Available");
 
 
             listings[Listing.GetCount()] = myListing;
@@ -153,6 +207,7 @@ namespace mis_221_pa_5_resmith16
 
         public void DeleteListing(){
             Console.Clear();
+            PrintCurrentListings();
             System.Console.WriteLine("Please input the Listing ID of the Listing you would like to delete:");
             int idInput = int.Parse(Console.ReadLine());
 
@@ -161,7 +216,7 @@ namespace mis_221_pa_5_resmith16
             Console.Clear();
             System.Console.Write($"Are you sure you want to delete");
             Console.ForegroundColor = ConsoleColor.Green;
-            System.Console.Write($" {listings[foundID].GetName()}?");
+            System.Console.WriteLine($" {listings[foundID].GetName()}?");
             Console.ResetColor();
 
             System.Console.WriteLine("(1) Yes \n(2) No");
@@ -173,6 +228,27 @@ namespace mis_221_pa_5_resmith16
             else if(userInput == "2"){
                 return;
             }
+        }
+
+        public void CategoryHeader(){
+            Console.SetCursorPosition(0, 0);
+            System.Console.WriteLine("ID:");
+
+            Console.SetCursorPosition(5, 0);
+            System.Console.WriteLine("Trainer Name:");
+
+            Console.SetCursorPosition(27, 0);
+            System.Console.WriteLine("Date:");
+
+            Console.SetCursorPosition(45, 0);
+            System.Console.WriteLine("Time:");
+
+            Console.SetCursorPosition(65, 0);
+            System.Console.WriteLine("Cost:");
+
+            Console.SetCursorPosition(75, 0);
+            System.Console.WriteLine("Status:");
+
         }
 
         public void Save(){
@@ -205,6 +281,25 @@ namespace mis_221_pa_5_resmith16
 
             return -1;
         }  
+
+        public int FindTrainerID(string selectedTrainer){
+            ReadAllTrainers();
+            
+            int i = 0;
+            int max = Trainer.GetCount();
+
+            while(i <= max){
+                if(selectedTrainer == trainers[i].GetName()){
+                    return trainers[i].GetID();
+                }
+                else{
+                    i++;
+                }
+            }
+
+            return -1;
+         
+        }
 
         public void SelectedTrainer(int foundID){
             Console.Clear();

@@ -32,9 +32,10 @@ static string GetMenuChoice(){
 
 static void DisplayMenu(){
     Console.Clear();
-    System.Console.WriteLine(@"Train Like A Champion - Personal Fitness
-");
-    System.Console.WriteLine("(1) Trainer Data \n(2) Listing Data \n(3) Customer Booking Data \n(4) Run Reports \n(5) Exit");
+    Console.ForegroundColor = ConsoleColor.Green;
+    System.Console.WriteLine("Train Like A Champion - Personal Fitness");
+    Console.ResetColor();
+    System.Console.WriteLine("(1) Trainer Data \n(2) Listing Data \n(3) Booking Data \n(4) Run Reports \n(5) Exit");
 }
 
 static bool ValidMenuChoice(string menuChoice){
@@ -50,13 +51,13 @@ static void Route(string menuChoice, string userInput, Trainer[] trainers, Listi
         TrainerData(trainers);
     }
     else if(menuChoice == "2"){
-        ListingData(listings);
+        ListingData(listings, trainers);
     }
     else if(menuChoice == "3"){
         BookingData(listings, trainers, bookings);
     }
     else if(menuChoice == "4"){
-        RunReports();
+        RunReports(trainers, listings, bookings);
     }
     else if(menuChoice != "5"){
         SayInvalid();
@@ -89,11 +90,12 @@ static void TrainerData(Trainer[] trainers){
 }
 
 
-static void ListingData(Listing[] listings){
-    ListingUtility utility = new ListingUtility(listings);
+static void ListingData(Listing[] listings, Trainer[] trainers){
+    ListingUtility utility = new ListingUtility(listings, trainers);
     
     utility.ReadAllListings();
-    utility.PrintAllListings();
+    utility.ReadAllTrainers();
+    utility.PrintCurrentListings();
 
     System.Console.WriteLine("(1) Add Listing \n(2) Edit Listing \n(3) Delete Listing \n(4) Return to Main Menu");
     string userInput = Console.ReadLine();
@@ -118,7 +120,7 @@ static void BookingData(Listing[] listings, Trainer[] trainers, Booking[] bookin
     BookingUtility utility = new BookingUtility(listings, trainers, bookings);
     
     utility.ReadAllListings();
-    utility.PrintAllListings();
+    utility.PrintAvailableListings();
 
     System.Console.WriteLine("(1) Book Session\n(2) Complete Session \n(3) Cancel Session \n(4) Return to Main Menu");
     string userInput = Console.ReadLine();
@@ -140,9 +142,20 @@ static void BookingData(Listing[] listings, Trainer[] trainers, Booking[] bookin
     
 }
 
-static void RunReports(){
-    //How do I go about doing the Reporting section?? This is a bit odd. Please ask questions.
+static void RunReports(Trainer[] trainers, Listing[] listings, Booking[] bookings){
+    ReportingUtility utility = new ReportingUtility(trainers, listings, bookings);
+
+    Console.Clear();
+
+    utility.ReadAllBookings();
+    utility.PrintAllBookings();
+
+    System.Console.WriteLine("(1) View Individual Customer Sessions \n(2) View Historical Customer Sessions \n(3) View Historical Revenue Report \n(4) Return to Main Menu");
+    string userInput = Console.ReadLine();
     
+    if(userInput == "1"){
+        utility.IndividualCustomerReport();
+    }
 }
 
 static void SayInvalid(){

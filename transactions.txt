@@ -1,1 +1,3 @@
-
+1#Ted Lasso#tlasso@crimson.ua.edu#04/03/2023#0#1#Wagner Osborne#Booked#
+2#Ted Lasso#tlasso@crimson.ua.edu#04/07/2023#0#8#Evan Paddock#Booked#
+3#Alexis Alewine#aalewine@crimson.ua.edu#04/06/2023#50#6#Austin Ferrier#Booked#

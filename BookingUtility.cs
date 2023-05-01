@@ -6,6 +6,7 @@ namespace mis_221_pa_5_resmith16
         private Booking[] bookings;
         private Trainer[] trainers;
         string userInput = "";
+        string status;
 
         public BookingUtility(Listing[] listings, Trainer[] trainers, Booking[] bookings){
             this.listings = listings;
@@ -21,7 +22,7 @@ namespace mis_221_pa_5_resmith16
 
                 while(line != null){
                 string[] temp = line.Split("#");
-                listings[Listing.GetCount()] = new Listing(int.Parse(temp[0]), temp[1], int.Parse(temp[2]), temp[3], temp[4], double.Parse(temp[5]), temp[6], temp[7]);
+                listings[Listing.GetCount()] = new Listing(int.Parse(temp[0]), temp[1], int.Parse(temp[2]), temp[3], temp[4], int.Parse(temp[5]), temp[6], temp[7]);
                 Listing.IncreaseCount();
                 line = inFile.ReadLine();
                 }
@@ -45,37 +46,78 @@ namespace mis_221_pa_5_resmith16
             inFile.Close();
         }
 
-        public void PrintAllListings(){
+        public void PrintAvailableListings(){
             int i = 0;
+            int j = 1;
 
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Green;
 
+            CategoryHeader();
+
             for(i = 0; i < Listing.GetCount(); i++){
-                if(listings[i].GetAvailability() == "Available"){
-                    Console.SetCursorPosition(0, i);
+                if(listings[i].GetStatus() == "Available"){
+                    Console.SetCursorPosition(0, j);
                     System.Console.WriteLine(listings[i].GetID());
 
-                    Console.SetCursorPosition(5, i);
+                    Console.SetCursorPosition(5, j);
                     System.Console.WriteLine(listings[i].GetName());
 
-                    Console.SetCursorPosition(27, i);
+                    Console.SetCursorPosition(27, j);
                     System.Console.WriteLine(listings[i].GetDate());
 
-                    Console.SetCursorPosition(45, i);
+                    Console.SetCursorPosition(45, j);
                     System.Console.WriteLine(listings[i].GetTime());
 
-                    Console.SetCursorPosition(65, i);
+                    Console.SetCursorPosition(65, j);
                     System.Console.WriteLine(listings[i].GetCost());
 
-                    Console.SetCursorPosition(75, i);
-                    System.Console.WriteLine(listings[i].GetAvailability());
-
-                    Console.SetCursorPosition(85, i);
+                    Console.SetCursorPosition(75, j);
                     System.Console.WriteLine(listings[i].GetStatus());
+
+                    j++;
                 }
-                else if(listings[i].GetAvailability() != "Available"){
-                    //Nothing as of rn
+                else if(listings[i].GetStatus() != "Available"){
+                    //Skips
+                }
+            }
+            System.Console.WriteLine();
+            Console.ResetColor();
+        }
+
+        public void PrintBookedListings(){
+            int i = 0;
+            int j = 1;
+
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Green;
+
+            CategoryHeader();
+
+            for(i = 0; i < Listing.GetCount(); i++){
+                if(listings[i].GetStatus() == "Booked"){
+                    Console.SetCursorPosition(0, j);
+                    System.Console.WriteLine(listings[i].GetID());
+
+                    Console.SetCursorPosition(5, j);
+                    System.Console.WriteLine(listings[i].GetName());
+
+                    Console.SetCursorPosition(27, j);
+                    System.Console.WriteLine(listings[i].GetDate());
+
+                    Console.SetCursorPosition(45, j);
+                    System.Console.WriteLine(listings[i].GetTime());
+
+                    Console.SetCursorPosition(65, j);
+                    System.Console.WriteLine(listings[i].GetCost());
+
+                    Console.SetCursorPosition(75, j);
+                    System.Console.WriteLine(listings[i].GetStatus());
+
+                    j++;
+                }
+                else if(listings[i].GetStatus() != "Booked"){
+                    //Skips
                 }
             }
             System.Console.WriteLine();
@@ -90,7 +132,7 @@ namespace mis_221_pa_5_resmith16
 
             Console.Clear();
             ReadAllTrainers();
-            PrintAllListings();
+            PrintAvailableListings();
 
             //Look at available listings
             System.Console.WriteLine("Please input the session ID of the session you would like to book:");
@@ -109,7 +151,7 @@ namespace mis_221_pa_5_resmith16
             userInput = Console.ReadLine();
 
             if(userInput == "1"){
-                listings[foundID].SetStatus("Booked");
+                status = "Booked";
             }
             else if(userInput == "2"){
                 return;
@@ -125,22 +167,25 @@ namespace mis_221_pa_5_resmith16
 
             myBooking.SetDate(listings[foundID].GetDate());
 
+            myBooking.SetCost(listings[foundID].GetCost());
+
             myBooking.SetTrainerName(listings[foundID].GetName());
             string selectedTrainer = listings[foundID].GetName();
 
             int foundTrainerID = FindTrainerID(selectedTrainer);
             myBooking.SetTrainerID(foundTrainerID);
 
-            myBooking.SetStatus("Booked");
-            listings[foundID].SetAvailability("Booked");
+            myBooking.SetStatus(status);
 
             bookings[Booking.GetCount()] = myBooking;
+            UpdateListingStatus(foundID, status);
+
             Booking.IncreaseCount();
         }
 
         public void CompleteSession(){
             Console.Clear();
-            PrintAllListings();
+            PrintBookedListings();
 
             System.Console.WriteLine("Please input the session ID of the session you would like to complete:");
             int idInput = int.Parse(Console.ReadLine());
@@ -157,17 +202,19 @@ namespace mis_221_pa_5_resmith16
             userInput = Console.ReadLine();
 
             if(userInput == "1"){
-                listings[foundID].SetStatus("Completed");
+                status = "Completed";
             }
             else if(userInput == "2"){
                 return;
             }
 
+            UpdateListingStatus(foundID, status);
+
         }
 
         public void CancelSession(){
             Console.Clear();
-            PrintAllListings();
+            PrintBookedListings();
 
             System.Console.WriteLine("Please input the session ID of the session you would like to cancel:");
             int idInput = int.Parse(Console.ReadLine());
@@ -184,11 +231,46 @@ namespace mis_221_pa_5_resmith16
             userInput = Console.ReadLine();
 
             if(userInput == "1"){
-                listings[foundID].SetStatus("Cancelled");
+                status = "Cancelled";
             }
             else if(userInput == "2"){
                 return;
             }
+
+            UpdateListingStatus(foundID, status);
+
+        }
+
+        public void CategoryHeader(){
+            Console.SetCursorPosition(0, 0);
+            System.Console.WriteLine("ID:");
+
+            Console.SetCursorPosition(5, 0);
+            System.Console.WriteLine("Trainer Name:");
+
+            Console.SetCursorPosition(27, 0);
+            System.Console.WriteLine("Date:");
+
+            Console.SetCursorPosition(45, 0);
+            System.Console.WriteLine("Time:");
+
+            Console.SetCursorPosition(65, 0);
+            System.Console.WriteLine("Cost:");
+
+            Console.SetCursorPosition(75, 0);
+            System.Console.WriteLine("Status:");
+
+        }
+
+        private void UpdateListingStatus(int foundID, string status){
+            Listing[] listings = new Listing[100];
+            ListingUtility utility = new ListingUtility(listings, trainers);
+
+            utility.ReadAllListings();
+
+            listings[foundID].SetStatus(status);
+
+            utility.Save();
         }
 
         public void Save(){
@@ -228,9 +310,6 @@ namespace mis_221_pa_5_resmith16
             int max = Trainer.GetCount();
 
             while(i <= max){
-                System.Console.WriteLine(selectedTrainer);
-                System.Console.WriteLine(trainers[i].GetName());
-
                 if(selectedTrainer == trainers[i].GetName()){
                     return trainers[i].GetID();
                 }

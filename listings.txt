@@ -1,10 +1,12 @@
-1#Wagner Osborne#1#04/03/2023#9:00AM-10:45AM#75#Available#
-2#Peyton Kauffman#2#04/05/2023#9:30AM-11:30AM#50#Booked#
+1#Wagner Osborne#1#04/03/2023#9:00AM-10:45AM#75#Booked#
+2#Peyton Kauffman#2#04/05/2023#9:30AM-11:30AM#50#Available#
 3#Chase Callahan#3#04/04/2023#10:00AM-11:00AM#50#Available#
 4#Alex Collins#4#04/04/2023#3:30PM-4:30PM#50#Available#
-5#Mattie Bryant#5#04/05/2023#3:45PM-5:00PM#74#Booked#
+5#Mattie Bryant#5#04/05/2023#3:45PM-5:00PM#74#Available#
 6#Austin Ferrier#6#04/06/2023#12:30PM-1:00PM#50#Booked#
 7#Kyle Knudson#7#04/07/2023#2:30PM-4:00PM#100#Available#
-8#Evan Paddock#8#04/07/2023#2:45PM-4:30PM#100#Available#
-9#Jaehee Kim#9#04/06/2023#9:30AM-11:30AM#100#Booked#
+8#Evan Paddock#8#04/07/2023#2:45PM-4:30PM#100#Booked#
+9#Jaehee Kim#9#04/06/2023#9:30AM-11:30AM#100#Available#
 10#Makayla Townsend#10#04/04/2023#12:00PM-1:00PM#50#Available#
+11#Rachel Smith#11#02/04/2003#10:00AM-12:00PM#75#Available#
+12#Rachel Smith#11#01/05/2005#11:00AM-1:00PM#100#Deleted#

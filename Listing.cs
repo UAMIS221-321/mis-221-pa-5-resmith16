@@ -9,24 +9,24 @@ namespace mis_221_pa_5_resmith16
         private int trainerID;
         private string date;
         private string time;
-        private double cost;
+        private int cost;
 
-        private string availability;
         private string status;
+        private string deleted;
 
         public Listing()
         {
         }
 
-        public Listing(int listingID, string name, int trainerID, string date, string time, double cost, string availability, string status){
+        public Listing(int listingID, string name, int trainerID, string date, string time, int cost, string status, string deleted){
             this.listingID = listingID;
             this.name = name;
             this.trainerID = trainerID;
             this.date = date;
             this.time = time;
             this.cost = cost;
-            this.availability = availability;
             this.status = status;
+            this.deleted = deleted;
         }
 
         public void SetID(int listingID){
@@ -69,20 +69,12 @@ namespace mis_221_pa_5_resmith16
             return time;
         }
 
-        public void SetCost(double cost){
+        public void SetCost(int cost){
             this.cost = cost;
         }
 
-        public double GetCost(){
+        public int GetCost(){
             return cost;
-        }
-
-        public void SetAvailability(string availability){
-            this.status = availability;
-        }
-
-        public string GetAvailability(){
-            return availability;
         }
 
         public void SetStatus(string status){
@@ -110,11 +102,11 @@ namespace mis_221_pa_5_resmith16
         }
 
         public string ToString(){
-            return $"{listingID} {name} {date} {time} {cost} {availability} {status}";
+            return $"{listingID} {name} {date} {time} {cost} {status} {deleted}";
         }
 
         public string ToFile(){
-            return $"{this.listingID}#{this.name}#{this.trainerID}#{this.date}#{this.time}#{this.cost}#{this.availability}#{this.status}";
+            return $"{this.listingID}#{this.name}#{this.trainerID}#{this.date}#{this.time}#{this.cost}#{this.status}#{this.deleted}";
         }
     }
 }

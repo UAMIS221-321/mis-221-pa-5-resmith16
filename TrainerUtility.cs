@@ -40,6 +40,9 @@ namespace mis_221_pa_5_resmith16
         public void PrintAllTrainers(){
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Green;
+
+            CategoryHeader();
+
             for(int i = 0; i < Trainer.GetCount(); i++){
                 Console.SetCursorPosition(0, i);
                 System.Console.WriteLine(trainers[i].GetID());
@@ -174,6 +177,24 @@ namespace mis_221_pa_5_resmith16
             else if(userInput == "2"){
                 return;
             }
+        }
+
+        public void CategoryHeader(){
+            Console.SetCursorPosition(0, 0);
+            System.Console.WriteLine("ID:");
+
+            Console.SetCursorPosition(5, 0);
+            System.Console.WriteLine("Trainer Name:");
+
+            Console.SetCursorPosition(27, 0);
+            System.Console.WriteLine("Address");
+
+            Console.SetCursorPosition(45, 0);
+            System.Console.WriteLine("Email:");
+
+            Console.SetCursorPosition(50, 0);
+            System.Console.WriteLine("Status:");
+
         }
 
         public void Save(){

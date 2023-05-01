@@ -8,6 +8,7 @@ namespace mis_221_pa_5_resmith16
 
         private string customerEmail;
         private string date;
+        private int cost;
         private int trainerID;
         private string trainerName;
         private string status;
@@ -16,11 +17,12 @@ namespace mis_221_pa_5_resmith16
 
         }
 
-        public Booking(int customerID, string customerName, string customerEmail, string date, int trainerID, string trainerName, string status){
+        public Booking(int customerID, string customerName, string customerEmail, string date, int cost, int trainerID, string trainerName, string status){
             this.customerID = customerID;
             this.customerName = customerName;
             this.customerEmail = customerEmail;
             this.date = date;
+            this.cost = cost;
             this.trainerID = trainerID;
             this.trainerName = trainerName;
             this.status = status;
@@ -56,6 +58,14 @@ namespace mis_221_pa_5_resmith16
 
         public string GetDate(){
             return date;
+        }
+
+        public void SetCost(int cost){
+            this.cost = cost;
+        }
+
+        public int GetCost(){
+            return cost;
         }
 
         public void SetTrainerID(int trainerID){
@@ -99,11 +109,11 @@ namespace mis_221_pa_5_resmith16
         }
 
         public string ToString(){
-            return $"{customerID} {customerName} {customerEmail} {date} {trainerID} {trainerName} {status}";
+            return $"{customerID} {customerName} {customerEmail} {date} {cost} {trainerID} {trainerName} {status}";
         }
 
         public string ToFile(){
-            return $"{this.customerID}#{this.customerName}#{this.customerEmail}#{date}#{trainerID}#{trainerName}#{status}#";
+            return $"{this.customerID}#{this.customerName}#{this.customerEmail}#{date}#{cost}#{trainerID}#{trainerName}#{status}#";
         }
     }
 }
