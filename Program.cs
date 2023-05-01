@@ -163,6 +163,15 @@ static void RunReports(Trainer[] trainers, Listing[] listings, Booking[] booking
     if(userInput == "1"){
         utility.IndividualCustomerReport();
     }
+    if(userInput == "2"){
+        utility.HistoricalCustomerSessions();
+    }
+    if(userInput == "3"){
+        utility.HistoricalRevenueReport();
+    }
+    if(userInput == "4"){
+        return;
+    }
 }
 
 static void SayInvalid(){
