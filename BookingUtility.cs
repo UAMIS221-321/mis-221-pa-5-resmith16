@@ -38,7 +38,7 @@ namespace mis_221_pa_5_resmith16
 
                 while(line != null){
                     string[] temp = line.Split("#");
-                    trainers[Trainer.GetCount()] = new Trainer(int.Parse(temp[0]), temp[1], temp[2], temp[3]);
+                    trainers[Trainer.GetCount()] = new Trainer(int.Parse(temp[0]), temp[1], temp[2], temp[3], temp[4]);
                     Trainer.IncreaseCount();
                     line = inFile.ReadLine();
                 }

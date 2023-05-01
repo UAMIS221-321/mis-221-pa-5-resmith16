@@ -29,7 +29,7 @@ namespace mis_221_pa_5_resmith16
 
                 while(line != null){
                     string[] temp = line.Split("#");
-                    trainers[Trainer.GetCount()] = new Trainer(int.Parse(temp[0]), temp[1], temp[2], temp[3]);
+                    trainers[Trainer.GetCount()] = new Trainer(int.Parse(temp[0]), temp[1], temp[2], temp[3], temp[4]);
                     Trainer.IncreaseCount();
                     line = inFile.ReadLine();
                 }
@@ -38,26 +38,30 @@ namespace mis_221_pa_5_resmith16
         }
 
         public void PrintAllTrainers(){
+            int j = 1;
+            
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Green;
 
             CategoryHeader();
 
             for(int i = 0; i < Trainer.GetCount(); i++){
-                Console.SetCursorPosition(0, i);
+                Console.SetCursorPosition(0, j);
                 System.Console.WriteLine(trainers[i].GetID());
 
-                Console.SetCursorPosition(5, i);
+                Console.SetCursorPosition(5, j);
                 System.Console.WriteLine(trainers[i].GetName());
 
-                Console.SetCursorPosition(27, i);
+                Console.SetCursorPosition(27, j);
                 System.Console.WriteLine(trainers[i].GetAdd());
 
-                Console.SetCursorPosition(45, i);
+                Console.SetCursorPosition(45, j);
                 System.Console.WriteLine(trainers[i].GetEmail());
 
-                Console.SetCursorPosition(50, i);
+                Console.SetCursorPosition(75, j);
                 System.Console.WriteLine(trainers[i].GetStatus());
+
+                j++;
             }
             Console.ResetColor();
 
@@ -90,6 +94,8 @@ namespace mis_221_pa_5_resmith16
 
             System.Console.WriteLine("Please Enter Trainer Email:");
             myTrainer.SetEmail(Console.ReadLine());
+
+            myTrainer.SetStatus("Current");
 
             trainers[Trainer.GetCount()] = myTrainer;
             Trainer.IncreaseCount();
@@ -192,7 +198,7 @@ namespace mis_221_pa_5_resmith16
             Console.SetCursorPosition(45, 0);
             System.Console.WriteLine("Email:");
 
-            Console.SetCursorPosition(50, 0);
+            Console.SetCursorPosition(75, 0);
             System.Console.WriteLine("Status:");
 
         }

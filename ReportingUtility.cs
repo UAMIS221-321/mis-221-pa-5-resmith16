@@ -42,19 +42,19 @@ namespace mis_221_pa_5_resmith16
                     Console.SetCursorPosition(0, j);
                     System.Console.WriteLine(bookings[i].GetCustID());
 
-                    Console.SetCursorPosition(5, j);
+                    Console.SetCursorPosition(8, j);
                     System.Console.WriteLine(bookings[i].GetCustName());
 
                     Console.SetCursorPosition(27, j);
                     System.Console.WriteLine(bookings[i].GetCustEmail());
 
-                    Console.SetCursorPosition(45, j);
+                    Console.SetCursorPosition(55, j);
                     System.Console.WriteLine(bookings[i].GetTrainerName());
 
-                    Console.SetCursorPosition(65, j);
+                    Console.SetCursorPosition(73, j);
                     System.Console.WriteLine(bookings[i].GetTrainerID());
 
-                    Console.SetCursorPosition(75, j);
+                    Console.SetCursorPosition(80, j);
                     System.Console.WriteLine(bookings[i].GetStatus());
 
                     j++;
@@ -123,32 +123,48 @@ namespace mis_221_pa_5_resmith16
         }
 
         public void HistoricalCustomerSessions(){
-
+            Console.Clear();
+            System.Console.WriteLine("Sorry, but this is incomplete. My apologies. -Rachel");
+            System.Console.WriteLine();
+            System.Console.WriteLine("Press Enter to Return to Main Menu");
+            Console.ReadKey();
         }
 
         public void HistoricalRevenueReport(){
-
+            Console.Clear();
+            System.Console.WriteLine("Sorry, but this is incomplete. My apologies. -Rachel");
+            System.Console.WriteLine();
+            System.Console.WriteLine("Press Enter to Return to Main Menu");
+            Console.ReadKey();
         }
 
         public void CategoryHeader(){
             Console.SetCursorPosition(0, 0);
-            System.Console.WriteLine("Customer ID:");
+            System.Console.WriteLine("C_ID:");
 
-            Console.SetCursorPosition(5, 0);
+            Console.SetCursorPosition(8, 0);
             System.Console.WriteLine("Customer Name:");
 
             Console.SetCursorPosition(27, 0);
             System.Console.WriteLine("Customer Email:");
 
-            Console.SetCursorPosition(45, 0);
+            Console.SetCursorPosition(55, 0);
             System.Console.WriteLine("Trainer Name:");
 
-            Console.SetCursorPosition(65, 0);
-            System.Console.WriteLine("Trainer ID:");
+            Console.SetCursorPosition(73, 0);
+            System.Console.WriteLine("T_ID:");
 
-            Console.SetCursorPosition(75, 0);
+            Console.SetCursorPosition(80, 0);
             System.Console.WriteLine("Status:");
 
+        }
+
+        public void SortByCustomer(Booking[] bookings){
+            //Incomplete
+        }
+
+        public void SortByDate(Booking[] bookings){
+            //Incomplete
         }
 
         public void SaveIndividualReport(string fileDestination, string inputEmail){

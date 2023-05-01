@@ -16,11 +16,12 @@ namespace mis_221_pa_5_resmith16
         }
 
         //Your constructor is setting the components of your whole trainer
-        public Trainer(int id, string name, string address, string email){
+        public Trainer(int id, string name, string address, string email, string status){
             this.id = id;
             this.name = name;
             this.address = address;
             this.email = email;
+            this.status = status;
         }
 
         public void SetID(int id){
@@ -80,7 +81,7 @@ namespace mis_221_pa_5_resmith16
         }
 
         public string ToString(){
-            return $"{id} {name} {address} {email}";
+            return $"{id} {name} {address} {email} {status}";
         }
 
         public string ToFile(){

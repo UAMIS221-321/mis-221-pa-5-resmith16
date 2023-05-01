@@ -33,7 +33,14 @@ static string GetMenuChoice(){
 static void DisplayMenu(){
     Console.Clear();
     Console.ForegroundColor = ConsoleColor.Green;
-    System.Console.WriteLine("Train Like A Champion - Personal Fitness");
+    System.Console.WriteLine(@"
+   ________                          _                _______ __                      
+  / ____/ /_  ____ _____ ___  ____  (_)___  ____     / ____(_) /_____  ___  __________
+ / /   / __ \/ __ `/ __ `__ \/ __ \/ / __ \/ __ \   / /_  / / __/ __ \/ _ \/ ___/ ___/
+/ /___/ / / / /_/ / / / / / / /_/ / / /_/ / / / /  / __/ / / /_/ / / /  __(__  |__  ) 
+\____/_/ /_/\__,_/_/ /_/ /_/ .___/_/\____/_/ /_/  /_/   /_/\__/_/ /_/\___/____/____/  
+                          /_/                                                         
+");
     Console.ResetColor();
     System.Console.WriteLine("(1) Trainer Data \n(2) Listing Data \n(3) Booking Data \n(4) Run Reports \n(5) Exit");
 }
