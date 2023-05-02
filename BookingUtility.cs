@@ -117,7 +117,7 @@ namespace mis_221_pa_5_resmith16
                     j++;
                 }
                 else if(listings[i].GetStatus() != "Booked"){
-                    //Skips
+                    
                 }
             }
             System.Console.WriteLine();

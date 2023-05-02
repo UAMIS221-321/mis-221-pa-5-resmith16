@@ -1,4 +1,4 @@
-﻿//PA 5
+﻿//PA 5 - Good Lord...
 using mis_221_pa_5_resmith16;
 
 string menuChoice = GetMenuChoice();

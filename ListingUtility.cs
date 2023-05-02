@@ -113,7 +113,7 @@ namespace mis_221_pa_5_resmith16
             }
             Console.ResetColor();
 
-            System.Console.WriteLine(); //Just for space between the menu
+            System.Console.WriteLine(); 
         }
 
         public void AddListing(){

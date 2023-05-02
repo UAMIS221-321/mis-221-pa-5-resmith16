@@ -15,7 +15,6 @@ namespace mis_221_pa_5_resmith16
         {
         }
 
-        //Your constructor is setting the components of your whole trainer
         public Trainer(int id, string name, string address, string email, string status){
             this.id = id;
             this.name = name;
