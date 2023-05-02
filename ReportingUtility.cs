@@ -82,7 +82,7 @@ namespace mis_221_pa_5_resmith16
             System.Console.WriteLine($"Individual Customer Report for {bookings[i].GetCustName()}");
             System.Console.WriteLine(); //Spacing
 
-            for(i = 0; i < Booking.GetCount(); i++){
+                for(i = 0; i < Booking.GetCount(); i++){
                 if(inputEmail == bookings[i].GetCustEmail()){
                     Console.SetCursorPosition(0, j);
                     System.Console.WriteLine(bookings[i].GetCustID());
@@ -124,17 +124,17 @@ namespace mis_221_pa_5_resmith16
 
         public void HistoricalCustomerSessions(){
             Console.Clear();
-            System.Console.WriteLine("Sorry, but this is incomplete. My apologies. -Rachel");
+            System.Console.WriteLine("Sorry, but this is incomplete. My apologies, I'm just out of time. -Rachel");
             System.Console.WriteLine();
-            System.Console.WriteLine("Press Enter to Return to Main Menu");
+            System.Console.WriteLine("Press Enter to Return to Main Menu...");
             Console.ReadKey();
         }
 
         public void HistoricalRevenueReport(){
             Console.Clear();
-            System.Console.WriteLine("Sorry, but this is incomplete. My apologies. -Rachel");
+            System.Console.WriteLine("Sorry, but this is incomplete. My apologies, I'm just out of tie. -Rachel");
             System.Console.WriteLine();
-            System.Console.WriteLine("Press Enter to Return to Main Menu");
+            System.Console.WriteLine("Press Enter to Return to Main Menu...");
             Console.ReadKey();
         }
 
