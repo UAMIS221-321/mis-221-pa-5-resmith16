@@ -7,12 +7,6 @@ namespace mis_221_pa_5_resmith16
         //Add, Edit, and Delete
         //Build it all here, keep it organized. That's the goal.
 
-        //Wait so... I'm building my method in the class. If I want to use it, I need to say two things.
-        //The class it is in, and the method name (Ex. Trainer.SetCount(0))
-        //Right? Makes a little more sense than just "Oh yeah it works somehow"
-        //Thanks Scott :)
-    
-
         //Set up a Trainer array
         private  Trainer[] trainers; //ohhh this is the trainers array Mattie was talking about
         string userInput = "";
@@ -70,8 +64,6 @@ namespace mis_221_pa_5_resmith16
 
 
         //Now build your add, edit, and delete methods
-        //Need to build a method for developing your trainer IDs - worry about it later
-
 
         public void AddTrainer(){
             Console.Clear();

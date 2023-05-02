@@ -122,6 +122,7 @@ namespace mis_221_pa_5_resmith16
             SaveIndividualReport(fileDestination, inputEmail);
         }
 
+        //Genuinely I am sorry but its Tuesday and I'm having to choose between this and studying for my final
         public void HistoricalCustomerSessions(){
             Console.Clear();
             System.Console.WriteLine("Sorry, but this is incomplete. My apologies, I'm just out of time. -Rachel");
@@ -132,7 +133,7 @@ namespace mis_221_pa_5_resmith16
 
         public void HistoricalRevenueReport(){
             Console.Clear();
-            System.Console.WriteLine("Sorry, but this is incomplete. My apologies, I'm just out of tie. -Rachel");
+            System.Console.WriteLine("Sorry, but this is incomplete. My apologies, I'm just out of time. -Rachel");
             System.Console.WriteLine();
             System.Console.WriteLine("Press Enter to Return to Main Menu...");
             Console.ReadKey();
